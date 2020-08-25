@@ -1,9 +1,8 @@
 class GameBoard
 
   def initialize()
-
     @playfields = Hash.new
-    ("a".."c").each do |column_coordinate|
+    ("a".."c").each do |column_coordinate| # Populate hash with playfields (a1, a2 etc.) as keys
       (1..3).each do |row_coordinate|
         playfield = column_coordinate + row_coordinate.to_s
         @playfields[playfield] = " "

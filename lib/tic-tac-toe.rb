@@ -1,8 +1,6 @@
 require_relative 'game'
-require_relative 'game_board'
 
 running = true
-reset = false
 round_counter = 0
 player1 = Hash.new
 player2 = Hash.new
@@ -19,19 +17,17 @@ def get_players(p1, p2)
   p2["symbol"] = gets.chomp.upcase[0]
 end
 
-puts "##################
-## Tic-Tac-Toe! ##
-##################
-\n\n"
+puts (
+  "\n    ##################"\
+  "\n    ## Tic-Tac-Toe! ##"\
+  "\n    ##################"\
+  "\n\n"
+)
 
 while running do
   game = Game.new
   if round_counter == 0
     puts "Welcome! Let's play Tic-Tac-Toe!\n\n"
-    get_players(player1, player2)
-  elsif reset
-    round_counter = 0
-    puts "\n\nAre the new players ready?"
     get_players(player1, player2)
   else 
     puts "\n\nGet ready for round #{round_counter + 1}!"
@@ -39,7 +35,7 @@ while running do
   winner = game.play_round(player1, player2, round_counter)
 
   if winner
-    puts "#{winner["name"]} is the winner!\n\n\n"
+    puts ("\n\n\n### #{winner["name"]} is the winner! ###\n\n\n")
   else
     puts "Its a draw!\n\n\n"
   end
@@ -51,5 +47,3 @@ while running do
   end
   round_counter += 1
 end
-
-puts player1
