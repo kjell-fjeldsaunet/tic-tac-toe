@@ -54,10 +54,10 @@ class Game
   end
 
   def row_line?(placed)
-    (1..3).each do |row_coordinate|
-      if (placed['a' + row_coordinate.to_s] == placed['b' + row_coordinate.to_s]) &&
-         (placed['a' + row_coordinate.to_s] == placed['c' + row_coordinate.to_s]) &&
-         (placed['a' + row_coordinate.to_s] != ' ')
+    ('1'..'3').each do |row_coordinate|
+      if (placed['a' + row_coordinate] == placed['b' + row_coordinate]) &&
+         (placed['a' + row_coordinate] == placed['c' + row_coordinate]) &&
+         (placed['a' + row_coordinate] != ' ')
 
         return true
       end
